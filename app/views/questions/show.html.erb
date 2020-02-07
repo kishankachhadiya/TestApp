@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @question.question %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @question.topic.title %>
+  <%= link_to follow_topic_user_path(@question.topic) do %>
+    <button class="follow_topic"> Follow Topic </button>
+  <% end %>
+</p>
+<p>
+  <strong>Asked By:</strong>
+  <%= @question.user.full_name %>
+  <%= link_to follow_user_user_path(@question.user) do %>
+      <button class="follow_user"> Follow User </button>
+  <% end %>
+</p>
+<p><%= link_to "give Answer", new_question_answer_path(@question) %></p>
+
+<h3>Answer:</h3>
+<ul>
+  <% @question.answers.each do |ans| %>
+      <li class="answer">
+        <%= ans.answer %>
+        answered By <%= ans.user.full_name %>.
+      </li>
+  <% end %>
+</ul>
+

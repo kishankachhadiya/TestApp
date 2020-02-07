@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<ul>
+  <% @questions.each do |q| %>
+    <li>
+      <%= link_to q.question, question_path(q), class: "question" %>
+      Created By <%= q.user.full_name %>.
+    </li>
+  <% end %>
+</ul>
